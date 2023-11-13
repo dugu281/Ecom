@@ -30,12 +30,14 @@ export default function OrderHistoryScreen() {
     loading: true,
     error: '',
   });
+
+  axios.defaults.withCredentials = true;
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
         const { data } = await axios.get(
-          `http://localhost:4000/api/orders/mine`,
+          `https://ecom-server.vercel.app/orders/mine`,
 
           { headers: { Authorization: `Bearer ${userInfo.token}` } }
         );
