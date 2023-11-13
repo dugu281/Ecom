@@ -81,11 +81,11 @@ app.use(express.json());
 // app.use(require('./routes/seedRoutes'));
 
 
-app.use("/api", userRoutes);
-app.use("/api", fileRoutes);
-app.use("/api", productRoutes);
-app.use("/api", orderRoutes);
-app.use("/api", seedRoutes);
+app.use("/", userRoutes);
+app.use("/", fileRoutes);
+app.use("/", productRoutes);
+app.use("/", orderRoutes);
+app.use("/", seedRoutes);
 
 
 
