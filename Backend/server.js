@@ -2,7 +2,23 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');   // importing mongoose
 const app = express();
+// Schemas
+require('./models/user_model');
+// require('./models/tweet_model');
+require('./models/product_model');
+require('./models/order_model');
+
+
 // const { MONGO_DB_URL } = require('./config');   // from config.js file
+const userRoutes = require("./routes/user_route");
+const fileRoutes = require("./routes/file_route");
+const productRoutes = require("./routes/product_route");
+const orderRoutes = require("./routes/order_route");
+const seedRoutes = require("./routes/seedRoutes");
+
+
+
+
 require('dotenv').config();
 
 const PORT = 4000;          // listening on port number 8080
@@ -26,14 +42,7 @@ mongoose.connection.on('error', (error) => {
 })
 
 // using cors (middleware)
-// app.use(cors());
-app.use(cors(
-    {
-        origin: ["https://ecom-five-ivory.vercel.app"],
-        methods: ["POST", "GET", "PUT", "DELETE"],
-        credentials: true
-    }
-));
+app.use(cors());
 
 // middleware for formating json responses
 app.use(express.json());
@@ -47,21 +56,29 @@ app.use(express.json());
 // });
 
 
-// Schemas
-require('./models/user_model');
-// require('./models/tweet_model');
-require('./models/product_model');
-require('./models/order_model');
+// // Schemas
+// require('./models/user_model');
+// // require('./models/tweet_model');
+// require('./models/product_model');
+// require('./models/order_model');
 
 
 // Routes
 
-app.use(require('./routes/user_route'));   // from routes/user_route.js   ( /signup and /login )
-// app.use(require('./routes/tweet_route'));   // from routes/tweet_route.js   ( tweet management routes )
-app.use(require('./routes/file_route'));   // from routes/file_route.js    ( for uploading files - here images only )
-app.use(require('./routes/product_route'));
-app.use(require('./routes/order_route'));
-app.use(require('./routes/seedRoutes'));
+// app.use(require('./routes/user_route'));   // from routes/user_route.js   ( /signup and /login )
+// // app.use(require('./routes/tweet_route'));   // from routes/tweet_route.js   ( tweet management routes )
+// app.use(require('./routes/file_route'));   // from routes/file_route.js    ( for uploading files - here images only )
+// app.use(require('./routes/product_route'));
+// app.use(require('./routes/order_route'));
+// app.use(require('./routes/seedRoutes'));
+
+
+app.use("/api", userRoutes);
+app.use("/api", fileRoutes);
+app.use("/api", productRoutes);
+app.use("/api", orderRoutes);
+app.use("/api", seedRoutes);
+
 
 
 // // gateway routes
@@ -80,56 +97,3 @@ app.listen(PORT, (req, res) => {
 })
 
 
-
-
-
-
-/*
-
-
-PORT = 8080
-
-Database name - TwitterCloneApp
-
-MONGO_URL - 'mongodb://127.0.0.1:27017/TwitterCloneApp'
-
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// app.get("/welcome", (req, res) => {
-//     res.status(200).json({"msg": "Hey, Brother!"});
-// })
