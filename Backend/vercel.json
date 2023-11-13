@@ -1,15 +1,32 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "*.js",
-      "use": "@vercel/node",
+  "build": {
+    "env": {
+      "PORT": "4000",
+      "DB": process.env.DB,
+      "PAYPAL_CLIENT_ID": process.env.PAYPAL_CLIENT_ID,
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/"
+  },
+  "routes": [{
+    "src": "/(.*)",
+    "dest": "/api/$1",
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+      "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
     }
+  }],
+  "watch": [
+    "Backend/server.js",
+    "Backend/models/user_model.js",
+    "Backend/models/tweet_model.js",
+    "Backend/models/product_model.js",
+    "Backend/models/order_model.js",
+    "Backend/routes/user_route.js",
+    "Backend/routes/tweet_route.js",
+    "Backend/routes/file_route.js",
+    "Backend/routes/product_route.js",
+    "Backend/routes/order_route.js",
+    "Backend/routes/seedRoutes.js"
   ]
 }
