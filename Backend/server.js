@@ -29,7 +29,7 @@ mongoose.connection.on('error', (error) => {
 // app.use(cors());
 app.use(cors(
     {
-        origin: ["https://deploy-mern-frontend.vercel.app"],
+        origin: ["https://ecom-five-ivory.vercel.app"],
         methods: ["POST", "GET", "PUT", "DELETE"],
         credentials: true
     }
