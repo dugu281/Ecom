@@ -13,9 +13,4 @@
       "dest": "server.js"
     }
   ],
-    "rewrites": [
-      { 
-          "source": "/routes/(.*)", "destination": "server.js" 
-      }
-  ]
 }
