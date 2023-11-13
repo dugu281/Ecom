@@ -32,10 +32,11 @@ export default function DashboardScreen() {
   const { state } = useContext(Store);
   const { userInfo } = state;
 
+  axios.defaults.withCredentials = true;
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get('http://localhost:4000/api/orders/summary', {
+        const { data } = await axios.get('https://ecom-server.vercel.app/orders/summary', {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         });
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
