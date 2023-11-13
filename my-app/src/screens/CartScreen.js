@@ -16,8 +16,9 @@ export default function CartScreen() {
     cart: { cartItems },
   } = state;
 
+  axios.defaults.withCredentials = true;
   const updateCartHandler = async (item, quantity) => {
-    const { data } = await axios.get(`http://localhost:4000/api/products/${item._id}`);
+    const { data } = await axios.get(`https://ecom-server.vercel.app/products/${item._id}`);
     if (data.countInStock < quantity) {
       window.alert('Sorry. Product is out of stock');
       return;
