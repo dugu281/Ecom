@@ -44,6 +44,14 @@ mongoose.connection.on('error', (error) => {
 // using cors (middleware)
 app.use(cors());
 
+app.use(cors(
+    {
+        origin: ["https://ecom-five-ivory.vercel.app"],
+        methods: ["POST", "GET", "PUT", "DELETE"],
+        credentials: true
+    }
+));
+
 // middleware for formating json responses
 app.use(express.json());
 
