@@ -47,11 +47,13 @@ export default function OrderListScreen() {
       error: '',
     });
 
+
+  axios.defaults.withCredentials = true;
   useEffect(() => {
     const fetchData = async () => {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
-        const { data } = await axios.get(`http://localhost:4000/api/orders`, {
+        const { data } = await axios.get(`https://ecom-server.vercel.app/orders`, {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         });
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
@@ -73,7 +75,7 @@ export default function OrderListScreen() {
     if (window.confirm('Are you sure to delete?')) {
       try {
         dispatch({ type: 'DELETE_REQUEST' });
-        await axios.delete(`http://localhost:4000/api/orders/${order._id}`, {
+        await axios.delete(`https://ecom-server.vercel.app/orders/${order._id}`, {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         });
         toast.success('order deleted successfully');
