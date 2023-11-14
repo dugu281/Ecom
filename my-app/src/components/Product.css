@@ -1,0 +1,14 @@
+.product-card:hover {
+    transform: scale(1.01);
+    transition: all 0.2s;
+    box-shadow: 0 0 5px gray;
+}
+
+.product-card {
+    border: none;
+    box-shadow: 0 0 2px gray;
+}
+
+.product-card img {
+    height: 45vh;
+}

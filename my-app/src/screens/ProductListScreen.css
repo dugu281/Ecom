@@ -1,0 +1,117 @@
+/* 
+Generic Styling, for Desktops/Laptops 
+*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    /* background: linear-gradient(to right, lightgrey, rgb(0, 0, 0)); */
+}
+
+/* Zebra striping */
+table tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+table tr:nth-of-type(even) {
+    background: #ffe0e0;
+}
+
+table th {
+    background: #333;
+    color: white;
+    font-weight: bold;
+}
+
+table td,
+table th {
+    padding: 6px;
+    /* border: 1px solid #ccc; */
+    text-align: left;
+}
+
+
+
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+    /* Force table to not be like tables anymore */
+    table table,
+    table thead,
+    table tbody,
+    table th,
+    table td,
+    table tr {
+        display: block;
+        margin-top: 10px;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    /* table tr {
+        border: 1px solid #ccc;
+    } */
+
+    table td {
+        /* Behave  like a "row" */
+        /* border: none;
+        border-bottom: 1px solid #eee; */
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+
+    table td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        border-right: 2px solid #eee;
+        text-align: left;
+    }
+
+    /*
+	Label the data
+	*/
+    .ProductListScreen table td:nth-of-type(1):before {
+        content: "ID";
+    }
+
+    .ProductListScreen table td:nth-of-type(2):before {
+        content: "NAME";
+    }
+
+    .ProductListScreen table td:nth-of-type(3):before {
+        content: "PRICE";
+    }
+
+    .ProductListScreen table td:nth-of-type(4):before {
+        content: "CATEGORY";
+    }
+
+    .ProductListScreen table td:nth-of-type(5):before {
+        content: "BRAND";
+    }
+
+    .ProductListScreen table td:nth-of-type(6):before {
+        content: "ACTIONS";
+    }
+}
+
+.ProductListScreen {
+    font-family: 'Quicksand', sans-serif;
+}

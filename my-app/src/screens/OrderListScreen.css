@@ -1,0 +1,35 @@
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+    .OrderListScreen table td:nth-of-type(1):before {
+        content: "ID";
+    }
+
+    .OrderListScreen table td:nth-of-type(2):before {
+        content: "USER";
+    }
+
+    .OrderListScreen table td:nth-of-type(3):before {
+        content: "DATE";
+    }
+
+    .OrderListScreen table td:nth-of-type(4):before {
+        content: "TOTAL";
+    }
+
+    .OrderListScreen table td:nth-of-type(5):before {
+        content: "PAID";
+    }
+
+    .OrderListScreen table td:nth-of-type(6):before {
+        content: "DELIVERED";
+    }
+
+    .OrderListScreen table td:nth-of-type(7):before {
+        content: "ACTIONS";
+    }
+}
+
+.OrderListScreen {
+    font-family: 'Quicksand', sans-serif;
+}
