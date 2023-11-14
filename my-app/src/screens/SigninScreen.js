@@ -1,4 +1,4 @@
-import Axios from 'axios';
+import axios from 'axios';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 // import Container from 'react-bootstrap/Container';
 // import Form from 'react-bootstrap/Form';
@@ -22,13 +22,13 @@ export default function SigninScreen() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
 
-  Axios.defaults.withCredentials = true;
+  axios.defaults.withCredentials = true;
 
   const submitHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const { data } = await Axios.post('https://ecom-server.vercel.app/users/signin', {
+      const { data } = await axios.post('https://ecom-server.vercel.app/users/signin', {
         email,
         password,
       });
