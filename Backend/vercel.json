@@ -16,5 +16,10 @@
         "Access-Control-Allow-Origin": "https://ecom-five-ivory.vercel.app"
       }
     }
-  ]
+  ],
+  "functions": {
+    "/users/signup": {
+      "maxDuration": 30
+    }
+  }
 }
