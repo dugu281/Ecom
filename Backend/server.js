@@ -30,7 +30,7 @@ mongoose.connection.on('error', (error) => {
     console.log('connection error: ' + error);
 })
 // using cors (middleware)
-app.use(cors());
+// app.use(cors());
 app.use(cors(
     {
         origin: ["https://ecom-five-ivory.vercel.app"],
