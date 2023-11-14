@@ -22,7 +22,7 @@ export default function SigninScreen() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
 
-  Axios.defaults.withCredentials = true;
+  Axios.defaults.withCredentials = false;
 
   const submitHandler = async (e) => {
     e.preventDefault();
