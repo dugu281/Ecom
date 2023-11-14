@@ -44,12 +44,13 @@ export default function PlaceOrderScreen() {
   cart.taxPrice = round2(0.15 * cart.itemsPrice);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
 
+  axios.defaults.withCredentials = true;
   const placeOrderHandler = async () => {
     try {
       dispatch({ type: 'CREATE_REQUEST' });
 
       const { data } = await Axios.post(
-        'http://localhost:4000/api/orders',
+        'https://ecom-server.vercel.app/orders',
         {
           orderItems: cart.cartItems,
           shippingAddress: cart.shippingAddress,
