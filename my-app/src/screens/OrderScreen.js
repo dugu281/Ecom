@@ -90,12 +90,14 @@ export default function OrderScreen() {
       });
   }
 
+  axios.defaults.withCredentials = true;
+  
   function onApprove(data, actions) {
     return actions.order.capture().then(async function (details) {
       try {
         dispatch({ type: 'PAY_REQUEST' });
         const { data } = await axios.put(
-          `http://localhost:4000/api/orders/${order._id}/pay`,
+          `https://ecom-server.vercel.app/orders/${order._id}/pay`,
           details,
           {
             headers: { authorization: `Bearer ${userInfo.token}` },
@@ -117,7 +119,7 @@ export default function OrderScreen() {
     const fetchOrder = async () => {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
-        const { data } = await axios.get(`http://localhost:4000/api/orders/${orderId}`, {
+        const { data } = await axios.get(`https://ecom-server.vercel.app/orders/${orderId}`, {
           headers: { authorization: `Bearer ${userInfo.token}` },
         });
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
@@ -144,7 +146,7 @@ export default function OrderScreen() {
       }
     } else {
       const loadPaypalScript = async () => {
-        const { data: clientId } = await axios.get('http://localhost:4000/api/keys/paypal', {
+        const { data: clientId } = await axios.get('https://ecom-server.vercel.app/keys/paypal', {
           headers: { authorization: `Bearer ${userInfo.token}` },
         });
         paypalDispatch({
@@ -172,7 +174,7 @@ export default function OrderScreen() {
     try {
       dispatch({ type: 'DELIVER_REQUEST' });
       const { data } = await axios.put(
-        `http://localhost:4000/api/orders/${order._id}/deliver`,
+        `https://ecom-server.vercel.app/orders/${order._id}/deliver`,
         {},
         {
           headers: { authorization: `Bearer ${userInfo.token}` },
