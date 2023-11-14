@@ -83,7 +83,7 @@ app.use(express.json());
 
 app.use((req, res, next) => {
   if (req.headers['origin'] === 'https://ecom-five-ivory.vercel.app') {
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', 'https://ecom-five-ivory.vercel.app');
     res.header('Access-Control-Allow-Credentials', true);
   }
   next();
