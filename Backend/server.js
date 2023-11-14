@@ -44,7 +44,7 @@ mongoose.connection.on('error', (error) => {
 
 
 // using cors (middleware)
-app.use(cors());
+// app.use(cors());
 
 app.use(cors(
     {
@@ -81,13 +81,13 @@ app.use(express.json());
 // });
 
 
-app.use((req, res, next) => {
-  if (req.headers['origin'] === 'https://ecom-five-ivory.vercel.app') {
-    res.header('Access-Control-Allow-Origin', 'https://ecom-five-ivory.vercel.app');
-    res.header('Access-Control-Allow-Credentials', true)
-  }
-  next();
-});
+// app.use((req, res, next) => {
+//   if (req.headers['origin'] === 'https://ecom-five-ivory.vercel.app') {
+//     res.header('Access-Control-Allow-Origin', 'https://ecom-five-ivory.vercel.app');
+//     res.header('Access-Control-Allow-Credentials', true)
+//   }
+//   next();
+// });
 
 // Routes
 
