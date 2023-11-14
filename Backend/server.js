@@ -41,6 +41,8 @@ mongoose.connection.on('error', (error) => {
     console.log('connection error: ' + error);
 })
 
+
+
 // using cors (middleware)
 app.use(cors());
 
@@ -69,6 +71,14 @@ app.use(express.json());
 // // require('./models/tweet_model');
 // require('./models/product_model');
 // require('./models/order_model');
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Credentials',
+ 
+true);
+  next();
+});
 
 
 // Routes
