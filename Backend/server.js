@@ -72,14 +72,22 @@ app.use(express.json());
 // require('./models/product_model');
 // require('./models/order_model');
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Credentials',
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Credentials',
  
-true);
+// true);
+//   next();
+// });
+
+
+app.use((req, res, next) => {
+  if (req.headers['origin'] === 'https://ecom-five-ivory.vercel.app') {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Credentials', true);
+  }
   next();
 });
-
 
 // Routes
 
