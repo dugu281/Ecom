@@ -78,11 +78,12 @@ export default function ProductCreateScreen() {
 
     const { state } = useContext(Store);
     const { userInfo } = state;
+    axios.defaults.withCredentials = true;
 
     // useEffect(() => {
     //     const fetchData = async () => {
     //         try {
-    //             const { data } = await axios.get(`http://localhost:4000/api/products/admin?page=${page} `, {
+    //             const { data } = await axios.get(`https://ecom-server.vercel.app/products/admin?page=${page} `, {
     //                 headers: { Authorization: `Bearer ${userInfo.token}` },
     //             });
 
@@ -102,7 +103,7 @@ export default function ProductCreateScreen() {
     //     try {
     //       dispatch({ type: 'CREATE_REQUEST' });
     //       const { data } = await axios.post(
-    //         'http://localhost:4000/api/products',
+    //         'https://ecom-server.vercel.app/products',
     //         {},
     //         {
     //           headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -184,7 +185,7 @@ export default function ProductCreateScreen() {
                 dispatch({ type: 'CREATE_REQUEST' });
                 const imgRes = await handleImgUpload();
                 const { data } = await axios.post(
-                    'http://localhost:4000/api/products',
+                    'https://ecom-server.vercel.app/products',
                     {
                         name: productName,
                         slug: slugName,
@@ -216,7 +217,7 @@ export default function ProductCreateScreen() {
     // const deleteHandler = async (product) => {
     //     if (window.confirm('Are you sure to delete?')) {
     //         try {
-    //             await axios.delete(`http://localhost:4000/api/products/${product._id}`, {
+    //             await axios.delete(`https://ecom-server.vercel.app/products/${product._id}`, {
     //                 headers: { Authorization: `Bearer ${userInfo.token}` },
     //             });
     //             toast.success('product deleted successfully');
