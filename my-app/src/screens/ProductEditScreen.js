@@ -109,7 +109,7 @@ export default function ProductEditScreen() {
     const formData = new FormData();
     formData.append('file', image.data);
 
-    const response = axios.post(`http://localhost:4000/uploadProfilePic`, formData);
+    const response = axios.post(`https://ecomserver-jyy1.onrender.com/uploadProfilePic`, formData);
     return response;
   }
 
@@ -133,7 +133,7 @@ export default function ProductEditScreen() {
           `https://ecom-server.vercel.app/products/photo/${productId}`,
           {
             _id: productId,
-            image: `http://localhost:4000/files/${imgRes.data.fileName}`,
+            image: `https://ecomserver-jyy1.onrender.com/files/${imgRes.data.fileName}`,
 
           },
           {
