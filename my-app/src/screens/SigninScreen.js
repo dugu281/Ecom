@@ -22,13 +22,13 @@ export default function SigninScreen() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
 
-  axios.defaults.withCredentials = true;
+  // axios.defaults.withCredentials = true;
 
   const submitHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const { data } = await axios.post('https://ecom-server.vercel.app/users/signin', {
+      const { data } = await axios.post('https://reactecom-hhm4.onrender.com/users/signin', {
         email,
         password,
       });
