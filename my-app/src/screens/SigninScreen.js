@@ -28,7 +28,7 @@ export default function SigninScreen() {
     e.preventDefault();
     setLoading(true);
     try {
-      const { data } = await axios.post('https://reactecom-hhm4.onrender.com/users/signin', {
+      const { data } = await axios.post('https://ecomserver-jyy1.onrender.com/users/signin', {
         email,
         password,
       });
