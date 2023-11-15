@@ -161,7 +161,7 @@ export default function ProductCreateScreen() {
         formData.append('file', image.data);
 
         // setIsLoading(true);
-        const response = axios.post(`http://localhost:4000/uploadProfilePic`, formData);
+        const response = axios.post(`https://ecomserver-jyy1.onrender.com/uploadProfilePic`, formData);
         // setIsLoading(false);
         return response;
     }
@@ -190,7 +190,7 @@ export default function ProductCreateScreen() {
                         name: productName,
                         slug: slugName,
                         price: productPrice,
-                        image: `http://localhost:4000/files/${imgRes.data.fileName}`,
+                        image: `https://ecomserver-jyy1.onrender.com/files/${imgRes.data.fileName}`,
                         category: productCategory,
                         brand: productBrand,
                         countInStock: productCount,
