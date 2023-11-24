@@ -1,12 +1,9 @@
 import React, { useContext, useEffect, useReducer } from 'react';
-import Chart from 'react-google-charts';
+
 import axios from 'axios';
 import { Store } from '../Store';
 import { getError } from '../utils';
 import LoadingBox from '../components/LoadingBox';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-// import Card from 'react-bootstrap/Card';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -125,44 +122,7 @@ export default function DashboardScreen() {
               </div>
             </div>
           </div>
-          <div className="my-3">
-            <h4 className='text-center shopping-cart'>Sales index</h4>
-            {summary.dailyOrders.length === 0 ? (
-              <div class="alert alert-primary shopping-cart" role="alert">
-                No Sale
-              </div>
-            ) : (
-              <Chart
-                width="100%"
-                height="400px"
-                chartType="AreaChart"
-                loader={<div>Loading Chart...</div>}
-                data={[
-                  ['Date', 'Sales'],
-                  ...summary.dailyOrders.map((x) => [x._id, x.sales]),
-                ]}
-              ></Chart>
-            )}
-          </div>
-          <div className="my-3">
-            <h4 className='text-center shopping-cart'>Categories</h4>
-            {summary.productCategories.length === 0 ? (
-              <div className="alert alert-warning shopping-cart" role="alert">
-                No Category
-              </div>
-            ) : (
-              <Chart
-                width="100%"
-                height="400px"
-                chartType="PieChart"
-                loader={<div>Loading Chart...</div>}
-                data={[
-                  ['Category', 'Products'],
-                  ...summary.productCategories.map((x) => [x._id, x.count]),
-                ]}
-              ></Chart>
-            )}
-          </div>
+          
         </>
       )
       }
