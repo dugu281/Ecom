@@ -1,0 +1,15 @@
+.prof-pic {
+    overflow: hidden;
+    width: 120px;
+    height: 120px;
+    margin: -85px 0;
+    border-radius: 50%;
+}
+
+.prof-pic img {
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+    cursor: pointer;
+    inset: 0;
+}
