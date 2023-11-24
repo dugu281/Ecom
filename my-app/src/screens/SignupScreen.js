@@ -24,7 +24,7 @@ export default function SignupScreen() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
 
-  axios.defaults.withCredentials = true;
+  // axios.defaults.withCredentials = true;
   const submitHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -34,7 +34,7 @@ export default function SignupScreen() {
       return;
     }
     try {
-      const { data } = await axios.post('https://ecom-server.vercel.app/users/signup', {
+      const { data } = await axios.post('https://ecomserver-jyy1.onrender.com/users/signup', {
         name,
         email,
         password,
