@@ -135,24 +135,30 @@ function App() {
 
                   {userInfo ? (
                     <div className="dropdown">
-                      <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                      <button className="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img width="35" height="35" src={userInfo.image} alt="DP" className='me-2 rounded-5' />
                         {userInfo.name}
                       </button>
-                      <ul class="dropdown-menu dropdown-menu-lg-end">
-                        <li><a class="dropdown-item disabled text-primary fw-bold" aria-disabled="true">User Options</a></li>
-                        <li><Link class="dropdown-item" to="/profile">User Profile</Link></li>
-                        <li><Link class="dropdown-item" to="/orderhistory">Order History</Link></li>
+
+                      <ul className="dropdown-menu dropdown-menu-lg-end">
+
+                        <li><a className="dropdown-item disabled text-primary fw-bold" aria-disabled="true">User Options</a></li>
+                        <li><Link className="dropdown-item" to="/profile">User Profile</Link></li>
+                        <li><Link className="dropdown-item" to="/orderhistory">Order History</Link></li>
+
                         {userInfo && userInfo.isAdmin && (
                           <span>
-                            <li><hr class="dropdown-divider" /></li>
-                            <li><a class="dropdown-item disabled text-primary fw-bold" aria-disabled="true">Admin Options</a></li>
-                            <li><Link class="dropdown-item" to="/admin/dashboard">Dashboard</Link></li>
-                            <li><Link class="dropdown-item" to="/admin/products">Products</Link></li>
-                            <li><Link class="dropdown-item" to="/admin/orders">Orders</Link></li>
-                            <li><Link class="dropdown-item" to="/admin/users">Users</Link></li>
+                            <li><hr className="dropdown-divider" /></li>
+                            <li><a className="dropdown-item disabled text-primary fw-bold" aria-disabled="true">Admin Options</a></li>
+                            <li><Link className="dropdown-item" to="/admin/dashboard">Dashboard</Link></li>
+                            <li><Link className="dropdown-item" to="/admin/products">Products</Link></li>
+                            <li><Link className="dropdown-item" to="/admin/orders">Orders</Link></li>
+                            <li><Link className="dropdown-item" to="/admin/users">Users</Link></li>
                           </span>
                         )}
-                        <li><hr class="dropdown-divider" /></li>
+
+                        <li><hr className="dropdown-divider" /></li>
                         <li><Link
                           className="dropdown-item text-danger fw-bold"
                           to="#signout"
@@ -161,10 +167,11 @@ function App() {
                           Sign Out
                         </Link></li>
                       </ul>
+
                     </div>
 
                   ) : (
-                    <Link className="btn btn-secondary text-light" to="/signin">
+                    <Link className="btn btn-primary text-light" to="/signin">
                       Sign In
                     </Link>
                   )}
