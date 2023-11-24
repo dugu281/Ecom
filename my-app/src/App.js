@@ -308,7 +308,7 @@ function App() {
               <Route path="/about" element={<About />} />
             </Routes>
           </div>
-          <p className="text-center p-1 shopping-cart" id='footer'>Made with passion by <span className='text-muted'>&copy; </span>Durgesh Bhoye</p>
+          <p className="text-center p-1 shopping-cart" id='footer'>Made by <span className='text-muted'>&copy; </span>Durgesh Bhoye</p>
         </main>
 
 
