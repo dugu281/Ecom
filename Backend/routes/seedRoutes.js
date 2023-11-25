@@ -23,6 +23,32 @@ seedRouter.post('/seed/',
   expressAsyncHandler(async (req, res) => {
     // // await Product.remove({});
     const createdProducts = await Product.insertMany(data.products);
+    const createdProducts = await Product.insertMany([
+    {
+      name: 'Admin',
+      email: 'admin@admin.com',
+      password: bcrypt.hashSync('11111'),
+      isAdmin: true,
+      phone: 9087654321,
+      address: 'Seed address',
+    },
+    {
+      name: 'John Doe',
+      email: 'john@example.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: false,
+      phone: 9087654321,
+      address: 'Seed address',
+    },
+    {
+      name: 'Durgesh',
+      email: 'durgesh@example.com',
+      password: bcrypt.hashSync('111'),
+      isAdmin: true,
+      phone: 9087654321,
+      address: 'Nashik,Maharashtra',
+    },
+  ]);
     // // await User.remove({});
     // const createdUsers = await User.insertMany(data.users);
     // res.send({ createdProducts, createdUsers });
