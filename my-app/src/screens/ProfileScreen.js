@@ -79,7 +79,7 @@ export default function ProfileScreen() {
 
       const imgRes = await handleImgUpload();        // image upload function call
       const { data } = await axios.put(
-        'https://ecomserver-jyy1.onrender.com/api/users/profile',
+        'https://ecomserver-jyy1.onrender.com/users/profile',
         {
           name,
           email,
