@@ -120,7 +120,7 @@ export default function ProfileScreen() {
     try {
 
       const { data } = await axios.put(
-        'https://ecomserver-jyy1.onrender.com/api/users/profile',
+        'https://ecomserver-jyy1.onrender.com/users/profile',
         {
           name,
           email,
