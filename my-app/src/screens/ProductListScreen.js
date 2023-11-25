@@ -120,7 +120,7 @@ export default function ProductListScreen() {
       try {
         dispatch({ type: 'CREATE_REQUEST' });
         const { data } = await axios.post(
-          'https://ecomserver-jyy1.onrender.com/seed',
+          'https://ecom-server.vercel.app/seed',
           {},
           {
             headers: { Authorization: `Bearer ${userInfo.token}` },
